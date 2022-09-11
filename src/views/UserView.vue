@@ -21,9 +21,10 @@
         <el-table-column label="Operations" width="240">
             <template #default="scope">
                 <el-button size="default" type="primary" @click="handleEdit(scope.$index, scope.row)">Edit</el-button>
-                <el-popconfirm title="Are you sure to delete this?"  @confirm="handleDelete(scope, scope.row)" width="300px">
+                <el-popconfirm title="Are you sure to delete this?" @confirm="handleDelete(scope, scope.row)"
+                    width="300px">
                     <template #reference>
-                        <el-button size="default" type="danger" >Delete</el-button>
+                        <el-button size="default" type="danger">Delete</el-button>
                     </template>
                 </el-popconfirm>
             </template>
@@ -75,8 +76,8 @@
         </el-form>
         <template #footer>
             <span class="dialog-footer">
-                <el-button @click="dialogFormVisible = false">Cancel</el-button>
-                <el-button type="primary" @click="modUser()">Confirm</el-button>
+                <el-button @click="cancelEdit">Cancel</el-button>
+                <el-button type="primary" @click="modUser">Confirm</el-button>
             </span>
         </template>
     </el-dialog>
@@ -131,7 +132,7 @@ const modUser = () => {
     })
 }
 
-const delUser = (id:string) => {
+const delUser = (id: string) => {
     loading.value = true
     delUserInfo(id).then((res) => {
         console.log("delRes:", res)
@@ -147,12 +148,15 @@ const handleEdit = (index: number, row: UserItf) => {
 const handleDelete = (index: any, row: UserItf) => {
     console.log(index, row)
     delUser(row.id)
-    location.reload();
+    location.reload()
     //replace无法重新加载当前页面路径，其他路径可以，未解决
     //router.replace({ path: '/manage/user' })
 }
 
-
+const cancelEdit = () => {
+    dialogFormVisible.value = true
+    location.reload()
+}
 
 
 </script>

@@ -22,7 +22,7 @@ const router = createRouter({
       path: '/manage',
       name: 'manage',
       component: () => import('../views/ManageView.vue'),
-      redirect: '/manage/goods',
+      redirect: '/manage/user',
       children: [
         {
           path: 'user',

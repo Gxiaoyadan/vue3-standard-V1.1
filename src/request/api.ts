@@ -19,6 +19,13 @@ export function register(data:UserRegisterItf){
     })
 }
 
+//用户登出
+export function logOut(){
+    return service({
+        url:"/user/logOut",
+    })
+}
+
 //获取用户信息
 export function getUserInfo (pageIndex:number,searchParam:string){
     return service({
