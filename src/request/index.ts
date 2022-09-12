@@ -1,10 +1,11 @@
+import { requestBase } from "@/type/requestBase";
 import axios from "axios";
 import { ElMessage } from "element-plus";
 
 
 //创建axios实例
 const service = axios.create({
-    baseURL:"http://127.0.0.1:8080",
+    baseURL:requestBase.url,
     timeout:5000,
     headers:{
           "Content-type" : "application/json;charset=utf-8"

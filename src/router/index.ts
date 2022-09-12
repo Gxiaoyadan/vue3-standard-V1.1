@@ -50,7 +50,7 @@ const router = createRouter({
 //路由守卫
 router.beforeEach((to, from, next) => {
   const token: string | null = localStorage.getItem("token")
-  if (!token && to.path != "/login") {
+  if (!token && to.path != "/login"&& to.path != "/register") {
     next("/login")
   } else {
     next()

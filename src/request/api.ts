@@ -57,3 +57,12 @@ export function delUserInfo (id:string){
         }
     })
 }
+
+
+//下载用户信息
+export function DownUserInfo (){
+    return service({
+        url:"/user/getUserDownChecksum",
+        method:"get",
+    })
+}
