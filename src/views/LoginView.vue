@@ -11,7 +11,7 @@
                 </el-form-item>
 
                 <el-form-item>
-                    <el-button type="primary" @click="submitForm(ruleFormRef)">Submit</el-button>
+                    <el-button type="primary" @click="submitForm(ruleFormRef)">Login</el-button>
                     <el-button @click="resetForm(ruleFormRef)">Reset</el-button>
                 </el-form-item>
             </el-form>
@@ -103,7 +103,7 @@ const submitForm = (formEl: FormInstance | undefined) => {
 .login-form {
     background-color: aliceblue;
     padding: 20px;
-    width: 40%;
+    width: 35%;
     height: 35%;
     border-radius: 10px;
     position: relative;
@@ -111,5 +111,17 @@ const submitForm = (formEl: FormInstance | undefined) => {
 
     // 水平居中
     margin: 0 auto;
+}
+.demo-ruleForm{
+   // background-color: saddlebrown;
+   padding: 100px;
+    
+}
+.el-input{
+    width: 310px;
+}
+.el-button{
+    margin-top: 20px;
+    width: 150px;
 }
 </style>

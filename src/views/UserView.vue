@@ -88,8 +88,8 @@
     </div>
 </template>
   
-<script lang="ts" setup>import { delUserInfo, getUserInfo, modUserInfo } from '@/request/api';
-
+<script lang="ts" setup>
+import { delUserInfo, getUserInfo, modUserInfo } from '@/request/userApi';
 import { PageData } from '@/type/page';
 import { onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
@@ -127,7 +127,9 @@ const modUser = () => {
     modUserInfo(modUserData.value).then((res) => {
         dialogFormVisible.value = false
         console.log("modRes:", res)
-        location.reload();
+        console.log("mod:" + pageData.value.pageIndex + "------" + searchParam.value)
+        //修改或者删除，重新查询一次当前页面数据--查询参数及当前页码
+        getUser()
         loading.value = false
     })
 }
@@ -136,7 +138,9 @@ const delUser = (id: string) => {
     loading.value = true
     delUserInfo(id).then((res) => {
         console.log("delRes:", res)
-        location.reload();
+        console.log("del:" + pageData.value.pageIndex + "---" + searchParam.value)
+        getUser()
+        loading.value = false
     })
 }
 
@@ -148,14 +152,14 @@ const handleEdit = (index: number, row: UserItf) => {
 const handleDelete = (index: any, row: UserItf) => {
     console.log(index, row)
     delUser(row.id)
-    location.reload()
+    //location.reload()
     //replace无法重新加载当前页面路径，其他路径可以，未解决
     //router.replace({ path: '/manage/user' })
 }
 
 const cancelEdit = () => {
-    dialogFormVisible.value = true
-    location.reload()
+    dialogFormVisible.value = false
+    getUser()
 }
 
 

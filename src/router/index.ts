@@ -6,7 +6,28 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: () => import('../views/HomeView.vue')
+      component: () => import('../views/HomeView.vue'),
+      redirect: '/homeInfo',
+      children: [
+        {
+          path: 'homeInfo',
+          name: 'homeInfo',
+          meta: {
+            isShow: true,//是否需要被展示出来
+            title: "homeInfo"
+          },
+          component: () => import('../views/HomeInfoView.vue')
+        },
+        {
+          path: 'blog',
+          name: 'blog',
+          meta: {
+            isShow: true,//是否需要被展示出来
+            title: "blog"
+          },
+          component: () => import('../views/BlogView.vue')
+        },
+      ]
     },
     {
       path: '/register',
