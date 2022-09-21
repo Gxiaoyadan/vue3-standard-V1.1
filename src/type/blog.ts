@@ -5,7 +5,7 @@ export interface blogItf {
     publishTime: string
     userId: string
     userName: string
-    PV: string
+    pv: string
     classify: string
     lastModTime: string
 }
@@ -17,7 +17,7 @@ export class blogData {
         publishTime: '',
         userId: '',
         userName: '',
-        PV: '',
+        pv: '',
         classify: '',
         lastModTime: '',
     }]

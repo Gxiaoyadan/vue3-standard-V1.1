@@ -52,6 +52,7 @@ const backHome = ()=>{
 .logo {
     height: 80px;
     float: right;
+    margin: auto;
 }
 .navigation-button{
     text-align: center;

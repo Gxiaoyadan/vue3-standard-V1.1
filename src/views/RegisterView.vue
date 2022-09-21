@@ -40,7 +40,7 @@
 import { reactive, ref, type Ref } from 'vue'
 import type { FormInstance } from 'element-plus'
 import { useRouter } from 'vue-router'
-import { register } from '../request/api';
+import { register } from '../request/userApi';
 import { UserData } from '@/type/user';
 
 

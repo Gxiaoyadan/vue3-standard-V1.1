@@ -3,7 +3,7 @@
     <button @click="Down">下载</button>
 </template>
 <script lang="ts" setup>
-import { DownUserInfo } from '@/request/api';
+import { DownUserInfo } from '@/request/userApi';
 import { requestBase } from '@/type/requestBase';
 
 

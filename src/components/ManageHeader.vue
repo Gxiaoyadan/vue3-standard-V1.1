@@ -1,7 +1,7 @@
 <template>
     <el-row :gutter="20">
         <el-col :span="4">
-            <img class="logo" src="../assets/logo.png" alt="">
+            <img class="logo" @click="backHome" src="../assets/logo.png" alt="">
         </el-col>
         <el-col :span="16">
             <h2>管理系统</h2>
@@ -20,7 +20,7 @@
 <script lang="ts" setup>
 
 import router from '@/router';
-import { logOut } from '../request/api';
+import { logOut } from '../request/userApi';
 
 const userOut = () => {
     logOut().then((res) => {
@@ -29,12 +29,15 @@ const userOut = () => {
         router.push("/login")
     })
 }
-
+const backHome = ()=>{
+    router.push("/")
+}
 </script>
 <style lang="scss" scoped>
 .logo {
     height: 80px;
-
+    float: right;
+    margin: auto;
 }
 
 h2,

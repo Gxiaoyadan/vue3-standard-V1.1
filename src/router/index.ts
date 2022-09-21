@@ -12,19 +12,19 @@ const router = createRouter({
         {
           path: 'homeInfo',
           name: 'homeInfo',
-          meta: {
-            isShow: true,//是否需要被展示出来
-            title: "homeInfo"
-          },
+          // meta: {
+          //   isShow: true,//是否需要被展示出来
+          //   title: "homeInfo"
+          // },
           component: () => import('../views/HomeInfoView.vue')
         },
         {
           path: 'blog',
           name: 'blog',
-          meta: {
-            isShow: true,//是否需要被展示出来
-            title: "blog"
-          },
+          // meta: {
+          //   isShow: true,//是否需要被展示出来
+          //   title: "blog"
+          // },
           component: () => import('../views/BlogView.vue')
         },
       ]

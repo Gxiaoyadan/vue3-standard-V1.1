@@ -22,7 +22,7 @@
 import type { FormInstance } from 'element-plus/es/components/form';
 import { reactive, ref } from 'vue';
 import { LoginData } from '../type/login';
-import { login } from '../request/api';
+import { login } from '../request/userApi';
 import { useRouter } from 'vue-router';
 
 //踩坑：想用的push方法是useRouter()才有的，但是引用的却是useRoute()

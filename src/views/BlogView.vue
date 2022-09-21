@@ -4,20 +4,33 @@
             <el-aside width="200px">Aside</el-aside>
             <el-main>
                 <div class="main-head">
-
+                    <el-button type="success">Release</el-button>
                 </div>
                 <div class="main-content">
                     <div v-for="item in list">
-                        <el-descriptions column="1">
-                            <el-descriptions-item>{{item.title}}</el-descriptions-item>
-                            <el-descriptions-item>{{item.content}}</el-descriptions-item>
-                            <!-- <el-descriptions>
-                                <el-descriptions-item label="Username">{{item.userName}}</el-descriptions-item>
-                                <el-descriptions-item label="publishTime">{{item.publishTime}}</el-descriptions-item>
-                                <el-descriptions-item label="Place">Suzhou</el-descriptions-item>
-                            </el-descriptions> -->
-                        </el-descriptions>
-
+                        <div class="content-description">
+                            <el-row :gutter="20" class="content-title">
+                                <el-col :span="24">
+                                    {{item.title}}
+                                </el-col>
+                            </el-row>
+                            <el-row :gutter="20" class="content-introductory">
+                                <el-col :span="24">
+                                    {{item.content}}
+                                </el-col>
+                            </el-row>
+                            <el-row :gutter="20" class="content-additional">
+                                <el-col :span="4">
+                                    {{item.userName}}
+                                </el-col>
+                                <el-col :span="16">
+                                    时间：{{item.publishTime}}
+                                </el-col>
+                                <el-col :span="4">
+                                    浏览：{{item.pv}}
+                                </el-col>
+                            </el-row>
+                        </div>
                     </div>
                 </div>
                 <div class="main-below">
@@ -51,7 +64,7 @@ const findBlog = () => {
 </script>
 <style lang="scss" scope>
 .common-layout {
-    width: 80%;
+    width: 70%;
     background-color: aliceblue;
     margin: auto;
 }
@@ -60,8 +73,30 @@ const findBlog = () => {
     background-color: rebeccapurple;
 }
 
-.el-descriptions {
+.content-description {
     // padding--内边距
-    padding-top: 10px;
+    margin-top: 10px;
+    background-color: whitesmoke;
+}
+.content-title{
+    font-size: large;
+    color: darkblue;
+    font-weight: 800;
+}
+.content-introductory{
+    font-size: small;
+    color: grey;
+}
+.content-additional{
+    font-size: small;
+    color: grey;
+}
+.el-row{
+    // padding:10px;                   四个内边距都是10px
+    // padding:5px 10px;   　          上下5px　左右10px
+    // padding:5px 10px 15px;          上5px　右10px　下15px   左因为缺省与右相等，则为10px
+    // padding:5px 10px 15px 20px;     上5px　右10px　下15px 　左20px
+
+    padding: 5px 50px;
 }
 </style>
