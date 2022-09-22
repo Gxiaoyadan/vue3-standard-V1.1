@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-import ManageHeader from '@/components/ManageHeader.vue';
+import HomeHeader from '@/components/HomeHeader.vue';
 import ManageAside from '@/components/ManageAside.vue';
 </script>
 <template>
   <div>
     <el-container>
       <el-header>
-        <ManageHeader />
+        <HomeHeader />
       </el-header>
       <el-container>
         <el-aside>
@@ -21,7 +21,7 @@ import ManageAside from '@/components/ManageAside.vue';
 </template>
 <style lang="scss">
 .el-header {
-  background-color: aqua;
+  //background-color: #c6c1a1;
   height: 80px;
 }
 

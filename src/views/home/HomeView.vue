@@ -20,7 +20,7 @@ import HomeHeader from '@/components/HomeHeader.vue';
 .home-box {
     width: 100%;
     height: 100vh;
-    background-image: url("../assets/homebg.jpg");
+    background-image: url("../../assets/homebg.jpg");
 }
 
 .el-header {

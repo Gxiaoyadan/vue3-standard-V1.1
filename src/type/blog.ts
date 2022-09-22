@@ -1,4 +1,4 @@
-export interface blogItf {
+export interface BlogItf {
     id: string
     title: string
     content: string
@@ -9,8 +9,8 @@ export interface blogItf {
     classify: string
     lastModTime: string
 }
-export class blogData {
-    blogContent: blogItf[] = [{
+export class BlogData {
+    blogContent: BlogItf[] = [{
         id: '',
         title: '',
         content: '',
@@ -21,4 +21,15 @@ export class blogData {
         classify: '',
         lastModTime: '',
     }]
+    blogOne: BlogItf = {
+        id: '',
+        title: '',
+        content: '',
+        publishTime: '',
+        userId: '',
+        userName: '',
+        pv: '',
+        classify: '',
+        lastModTime: '',
+    }
 }

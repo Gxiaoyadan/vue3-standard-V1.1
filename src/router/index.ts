@@ -6,7 +6,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: () => import('../views/HomeView.vue'),
+      component: () => import('../views/home/HomeView.vue'),
       redirect: '/homeInfo',
       children: [
         {
@@ -16,7 +16,7 @@ const router = createRouter({
           //   isShow: true,//是否需要被展示出来
           //   title: "homeInfo"
           // },
-          component: () => import('../views/HomeInfoView.vue')
+          component: () => import('../views/home/HomeInfoView.vue')
         },
         {
           path: 'blog',
@@ -25,7 +25,25 @@ const router = createRouter({
           //   isShow: true,//是否需要被展示出来
           //   title: "blog"
           // },
-          component: () => import('../views/BlogView.vue')
+          component: () => import('../views/blog/BlogView.vue')
+        },
+        {
+          path: 'blogcont',
+          name: 'blogcont',
+          // meta: {
+          //   isShow: true,//是否需要被展示出来
+          //   title: "blog"
+          // },
+          component: () => import('../views/blog/BlogContentView.vue')
+        },
+        {
+          path: 'blogedit',
+          name: 'blogedit',
+          // meta: {
+          //   isShow: true,//是否需要被展示出来
+          //   title: "blog"
+          // },
+          component: () => import('../views/blog/BlogEditView.vue')
         },
       ]
     },
@@ -42,7 +60,7 @@ const router = createRouter({
     {
       path: '/manage',
       name: 'manage',
-      component: () => import('../views/ManageView.vue'),
+      component: () => import('../views/manage/ManageView.vue'),
       redirect: '/manage/user',
       children: [
         {
@@ -52,7 +70,7 @@ const router = createRouter({
             isShow: true,//是否需要被展示出来
             title: "User Manage"
           },
-          component: () => import('../views/UserView.vue')
+          component: () => import('../views/manage/UserView.vue')
         },
         {
           path: 'goods',
@@ -61,7 +79,7 @@ const router = createRouter({
             isShow: true,//是否需要被展示出来
             title: "Goods Manage"
           },
-          component: () => import('../views/GoodsView.vue')
+          component: () => import('../views/manage/GoodsView.vue')
         },
       ]
     }
@@ -71,8 +89,9 @@ const router = createRouter({
 //路由守卫
 router.beforeEach((to, from, next) => {
   const token: string | null = localStorage.getItem("token")
-  if (!token && to.path != "/login"&& to.path != "/register") {
-    next("/login")
+  // if (!token && to.path != "/login"&& to.path != "/register"&& to.path != "/homeInfo") {
+  if(!token && (to.path == "/manage/user" || to.path == "/manage/goods")){
+    next("/")
   } else {
     next()
   }

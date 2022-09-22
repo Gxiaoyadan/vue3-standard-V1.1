@@ -93,7 +93,7 @@ import { delUserInfo, getUserInfo, modUserInfo } from '@/request/userApi';
 import { PageData } from '@/type/page';
 import { onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
-import { UserData, type UserItf } from '../type/user';
+import { UserData, type UserItf } from '../../type/user';
 
 const router = useRouter();
 const tableData = ref(new UserData().userTableData)
@@ -180,15 +180,17 @@ const cancelEdit = () => {
     height: 60px;
     padding-top: 30px;
     margin-right: 10%;
+
+    .el-input {
+        width: 250px;
+    }
+
+    .el-button {
+        margin-left: 20px;
+    }
 }
 
-.el-input {
-    width: 250px;
-}
 
-.el-button {
-    margin-left: 20px;
-}
 
 .page {
     /* background-color: antiquewhite; */
