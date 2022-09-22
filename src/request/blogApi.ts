@@ -22,12 +22,13 @@ export function findBlogByIdApi(blogId:string){
     })
 }
 
-export function addBlogApi(title:string,content:string){
+export function addBlogApi(title:string,inputIntro:string,content:string){
     return service({
         url:"/blog/addBlog",
         method:"POST",
         data:{
             title:title,
+            intro:inputIntro,
             content:content,
         },
     })

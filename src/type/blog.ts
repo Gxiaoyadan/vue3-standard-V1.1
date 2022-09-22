@@ -1,6 +1,7 @@
 export interface BlogItf {
     id: string
     title: string
+    intro: string
     content: string
     publishTime: string
     userId: string
@@ -13,6 +14,7 @@ export class BlogData {
     blogContent: BlogItf[] = [{
         id: '',
         title: '',
+        intro: '',
         content: '',
         publishTime: '',
         userId: '',
@@ -24,6 +26,7 @@ export class BlogData {
     blogOne: BlogItf = {
         id: '',
         title: '',
+        intro: '',
         content: '',
         publishTime: '',
         userId: '',

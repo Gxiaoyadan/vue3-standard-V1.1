@@ -26,9 +26,9 @@
                     </el-col>
                 </el-row>
             </el-header>
-            <el-main>
+            <el-main class="cont-main">
                 <p class="blog-content">
-                    {{blogdata.content}}
+                <p v-html="blogdata.content"></p>
                 </p>
             </el-main>
             <el-footer class="blog-footer">
@@ -77,6 +77,10 @@ const getBlogCont = () => {
 
     .cont-head {
         height: 100px;
+    }
+
+    .cont-main {
+        //background-color: bisque;
     }
 
     .blog-title {

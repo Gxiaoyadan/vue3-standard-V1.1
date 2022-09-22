@@ -4,17 +4,21 @@
             <h2 class="edit-head-p">标题：</h2>
             <el-input v-model="inputTitle" class="edit-head-input" size="large" placeholder="Please Input" />
         </div>
+        <div class="edit-intro">
+            <h4 class="edit-intro-p">简 介：</h4>
+            <el-input v-model="inputIntro" class="edit-intro-input" :rows="2" type="textarea" placeholder="Please input intro" />
+        </div>
         <div style="border: 1px solid #ccc">
             <Toolbar style="border-bottom: 1px solid #ccc" :editor="editorRef" :defaultConfig="toolbarConfig"
                 :mode="mode" />
-            <Editor style="height: 500px; overflow-y: hidden;" v-model="valueHtml" :defaultConfig="editorConfig"
+            <Editor style="height: 550px; overflow-y: hidden;" v-model="valueHtml" :defaultConfig="editorConfig"
                 :mode="mode" @onCreated="handleCreated" />
         </div>
         <div class="">
             <el-button class="submit-btn" type="primary" size="large" @click="release">Release</el-button>
         </div>
         {{valueHtml}}
-        {{editor}}
+        <p v-html="valueHtml"></p>
     </div>
 </template>
 <script lang="ts" setup>
@@ -23,7 +27,6 @@ import '@wangeditor/editor/dist/css/style.css' // 引入 css
 import { onBeforeUnmount, ref, shallowRef, onMounted } from 'vue'
 import { Editor, Toolbar } from '@wangeditor/editor-for-vue'
 import { addBlogApi } from '@/request/blogApi';
-import { createEditor } from '@wangeditor/editor';
 
 
 // 编辑器实例，必须用 shallowRef
@@ -32,27 +35,27 @@ const editorRef = shallowRef()
 const editor = editorRef.value
 
 const inputTitle = ref('')
+const inputIntro = ref('')
 
 const mode = 'default';//simple
 // 内容 HTML
-const valueHtml = ref('<p>hello</p>')
+const valueHtml = ref('')
 const toolbarConfig = {}
 const editorConfig = { placeholder: '请输入内容...' }
 
-const textHtml = createEditor({ valueHtml })
+
 
 // 模拟 ajax 异步获取内容
-onMounted(() => {
-    setTimeout(() => {
-        valueHtml.value = '<p>模拟 Ajax 异步设置内容</p>'
-    }, 1500)
-})
+// onMounted(() => {
+//     setTimeout(() => {
+//         valueHtml.value = '<p>模拟 Ajax 异步设置内容</p>'
+//     }, 1500)
+// })
 
 
 
 // 组件销毁时，也及时销毁编辑器
 onBeforeUnmount(() => {
-
     if (editor == null) return
     editor.destroy()
 })
@@ -62,7 +65,7 @@ const handleCreated = (editor: any) => {
 }
 
 const release = ()=>{
-    addBlogApi(inputTitle.value,valueHtml.value).then((res)=>{
+    addBlogApi(inputTitle.value,inputIntro.value,valueHtml.value).then((res)=>{
         console.log(res)
     })
 }
@@ -77,7 +80,7 @@ const release = ()=>{
 .edit-head {
     margin-top: 30px;
     margin-bottom: 30px;
-    padding-left: 20%;
+    padding-left: 5%;
     .edit-head-p {
         float: left;
         padding: auto;
@@ -88,6 +91,20 @@ const release = ()=>{
         height: 40px;
     }
 
+
+}
+.edit-intro{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-left: 5%;
+    .edit-intro-p {
+        float: left;
+        padding: auto;
+    }
+
+    .edit-intro-input {
+        width: 80%;
+    }
 }
 
 .submit-btn {

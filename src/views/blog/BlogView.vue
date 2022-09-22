@@ -27,7 +27,8 @@
                             <el-row :gutter="20">
                                 <el-col :span="24">
                                     <el-link class="content-introductory" @click="detail(item.id)" :underline="false">
-                                        {{item.content}}</el-link>
+                                        {{item.intro}}
+                                    </el-link>
                                 </el-col>
                             </el-row>
                             <el-row :gutter="20" class="content-additional">
