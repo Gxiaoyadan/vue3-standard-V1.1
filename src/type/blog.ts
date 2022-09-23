@@ -10,6 +10,17 @@ export interface BlogItf {
     classify: string
     lastModTime: string
 }
+export interface ReviewItf {
+    id: string
+    content: string
+    reviewTime: string
+    userId: string
+    userName: string
+    originalId: string
+    reviewType: string
+    like: string
+    hate: string
+}
 export class BlogData {
     blogContent: BlogItf[] = [{
         id: '',
@@ -34,5 +45,30 @@ export class BlogData {
         pv: '',
         classify: '',
         lastModTime: '',
+    }
+}
+
+export class ReviewData {
+    reviewContent: ReviewItf[] = [{
+        id: '',
+        content: '',
+        reviewTime: '',
+        userId: '',
+        userName: '',
+        originalId: '',
+        reviewType: '',
+        like: '',
+        hate: '',
+    }]
+    ReviewOne: ReviewItf = {
+        id: '',
+        content: '',
+        reviewTime: '',
+        userId: '',
+        userName: '',
+        originalId: '',
+        reviewType: '',
+        like: '',
+        hate: '',
     }
 }

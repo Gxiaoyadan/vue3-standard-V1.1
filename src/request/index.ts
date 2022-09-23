@@ -27,6 +27,7 @@ service.interceptors.response.use((res)=>{
     const code:number = res.data.code
     if(code != 2001){
         warningTips(res.data.message)
+        //返回Promise时，会在控制台出现异常信息，不会返回给调用方法
         return Promise.reject(res.data)
     }
     return res.data

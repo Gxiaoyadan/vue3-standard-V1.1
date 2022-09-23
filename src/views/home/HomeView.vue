@@ -23,8 +23,4 @@ import HomeHeader from '@/components/HomeHeader.vue';
     background-image: url("../../assets/homebg.jpg");
 }
 
-.el-header {
-    //background-color: wheat;
-    height: 80px;
-}
 </style>

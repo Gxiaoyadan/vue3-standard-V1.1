@@ -5,11 +5,11 @@ import ManageAside from '@/components/ManageAside.vue';
 <template>
   <div>
     <el-container>
-      <el-header>
+      <el-header class="manage-head">
         <HomeHeader />
       </el-header>
       <el-container>
-        <el-aside>
+        <el-aside class="manage-aside">
           <ManageAside />
         </el-aside>
         <el-main>
@@ -20,12 +20,12 @@ import ManageAside from '@/components/ManageAside.vue';
   </div>
 </template>
 <style lang="scss">
-.el-header {
+.manage-head {
   //background-color: #c6c1a1;
   height: 80px;
 }
 
-.el-aside {
+.manage-aside {
   // background-color: #545c64;
   width: 200px;
 }

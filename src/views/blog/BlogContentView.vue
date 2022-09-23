@@ -2,8 +2,8 @@
     <div class="layout-box">
         <el-container>
             <el-header class="cont-head">
-                <p class="blog-title">{{blogdata.title}}</p>
-                <el-row class="title-addition">
+                <p class="cont-head-title">{{blogdata.title}}</p>
+                <el-row class="cont-head-addition">
                     <el-col :span="2">
                         作者：{{blogdata.userName}}
                     </el-col>
@@ -27,18 +27,17 @@
                 </el-row>
             </el-header>
             <el-main class="cont-main">
-                <p class="blog-content">
+                <p class="cont-main-intro">
+                    简介：{{blogdata.intro}}
+                </p>
+                <p class="cont-main-content">
                 <p v-html="blogdata.content"></p>
                 </p>
             </el-main>
-            <el-footer class="blog-footer">
-                <el-input v-model="textarea" :rows="10" type="textarea" placeholder="Please input" />
-                <p class="reviewCount-p">总共已有 0 条评论</p>
-                <el-button class="review-button" type="primary" size="large">Submit Review</el-button>
-                <div class="review-content">
-                    这里是回复区
-                </div>
-            </el-footer>
+
+            <div class="review-content">
+                <BlogReviewView :blogId="blogdata.id"/>
+            </div>
         </el-container>
     </div>
 </template>
@@ -47,14 +46,16 @@ import { findBlogByIdApi } from '@/request/blogApi';
 import { BlogData } from '@/type/blog';
 import { onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router'
-import { Editor, Toolbar } from '@wangeditor/editor-for-vue'
+import BlogReviewView from './BlogReviewView.vue'
+
+
 const route = useRoute()
 //使用params传参：如果提供了 path，params 会被忽略，但query 没有这种情况，此时需要提供路由的 name 或手写完整的带有参数的 path
 //经测试，使用params时，即使使用name也无法传参
 // let blogId = route.params
 const blogId: any = route.query.blogId
 const blogdata = ref(new BlogData().blogOne)
-const textarea = ref('')
+
 
 onMounted(() => {
     getBlogCont()
@@ -70,58 +71,58 @@ const getBlogCont = () => {
 <style lang="scss" scoped>
 .layout-box {
     width: 70%;
-    background-color: #c6c1a1;
+    background-color: whitesmoke;
     margin: auto;
     padding: 50px;
-    height: 100vh;
+    //height: 100%;
 
     .cont-head {
-        height: 100px;
+        //根据内容变高度，需设置100%(有的不设置也可以，但这里不设置不行)
+        height: 100%;
+        background-color: white;
+
+        .cont-head-title {
+            //单词间间距，不适用于中文
+            //word-spacing: 30px;
+            //height: 50px;
+            letter-spacing: 2px;
+            font-size: 20px;
+            font-weight: 800;
+            //background-color: aqua;
+            //padding-left: 50px;
+            margin-top: 20px;
+        }
+
+        .cont-head-addition {
+            margin-top: 15px;
+            padding-bottom: 10px;
+            font-size: small;
+            color: grey;
+            //background-color: rgb(38, 44, 44);
+        }
+
+
     }
+
 
     .cont-main {
-        //background-color: bisque;
-    }
+        background-color: white;
+        margin-top: 5px;
 
-    .blog-title {
-        //单词间间距，不适用于中文
-        //word-spacing: 30px;
-        height: 70px;
-        letter-spacing: 2px;
-        font-size: 25px;
-        font-weight: 800;
-
-    }
-
-    .title-addition {
-        margin-top: 10px;
-        font-size: small;
-        color: grey;
-    }
-
-    .blog-content {
-        letter-spacing: 2px;
-        line-height: 2;
-    }
-
-    .blog-footer {
-        height: 300px;
-
-        .review-button {
-            float: right;
-            margin-top: 10px;
+        .cont-main-intro {
+            //background-color: rgb(204, 13, 13);
+            font-size: normal;
+            color: grey;
+            //margin-top: 20px;
         }
 
-        .reviewCount-p {
-            margin-top: 10px;
-            float: left;
-        }
-
-        .review-content {
-            width: 100%;
-            float: left;
+        .cont-main-content {
+            letter-spacing: 2px;
+            line-height: 2;
             margin-top: 20px;
-            background-color: royalblue;
+            //background-color: rgb(75, 40, 40);
+
+
         }
     }
 

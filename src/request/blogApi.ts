@@ -33,3 +33,15 @@ export function addBlogApi(title:string,inputIntro:string,content:string){
         },
     })
 }
+
+export function addReviewApi(originalId:string| undefined,content:string,reviewType:string){
+    return service({
+        url:"/blog/addReview",
+        method:"POST",
+        data:{
+            originalId:originalId,
+            content:content,
+            reviewType:reviewType,
+        },
+    })
+}

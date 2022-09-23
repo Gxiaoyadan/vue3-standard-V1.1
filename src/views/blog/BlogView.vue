@@ -2,13 +2,9 @@
     <div class="blog-layout">
         <el-container>
             <el-aside width="200px">
-                <el-button class="release-button" color="#c6c1a1" @click="release">Release Blog</el-button>
+                <el-button class="release-button" @click="release" type="primary">Release Blog</el-button>
             </el-aside>
             <el-main>
-                <div class="main-head">
-
-                    <!-- <el-button type="success">Release</el-button> -->
-                </div>
                 <div class="blogSearch">
                     <el-input v-model="searchParam" placeholder="Please input Keyword" clearable />
                     <el-button type="primary" round v-on:click="findBlog">Search</el-button>
@@ -49,9 +45,9 @@
                             layout="prev, pager, next" :page-count="pageData.pageCount" />
                     </div>
                 </div>
-                <div class="main-below">
+                <!-- <div class="main-below">
                     <h3>嘿，小丫蛋!</h3>
-                </div>
+                </div> -->
             </el-main>
         </el-container>
     </div>
@@ -94,35 +90,33 @@ const release=()=>{
 <style lang="scss" scope>
 .blog-layout {
     width: 70%;
-    background-color: #c6c1a1;
+    background-color: whitesmoke;
     margin: auto;
 }
 
 .el-aside {
-    background-color: #a6c1a1;
+    background-color: white;
 
     .release-button {
         text-align: center;
-        height: 50px;
-        width: 98%;
-        // color: darkblue;
+        height: 40px;
+        width: 90%;
+        margin: 10px;
+        color: black;
         font-size: large;
 
     }
 }
 
-.main-head {
-    float: left;
-}
 
 .blogSearch {
-    //   background-color: aliceblue;
-    float: right;
-    width: 350px;
+    
+    width: 50%;
     height: 60px;
     padding-top: 30px;
-    margin-right: 10%;
-
+    //设置内边距时，必须设置其对应高度或宽度百分比
+    padding-left: 50%;
+    background-color: white;
     .el-input {
         width: 250px;
     }
@@ -139,7 +133,7 @@ const release=()=>{
     .content-description {
         // padding--内边距
         margin-top: 10px;
-        background-color: gainsboro;
+        background-color: white;
 
 
         .content-title {
@@ -169,9 +163,12 @@ const release=()=>{
     }
 
     .page {
-        /* background-color: antiquewhite; */
-        margin-right: 100px;
-        float: right;
+        background-color: white; 
+        width: 30%;
+        height: 60px;
+        margin-top: 10px;
+        padding-top: 20px;
+        padding-left: 70%;
     }
 
 }
