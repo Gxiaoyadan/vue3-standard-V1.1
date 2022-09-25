@@ -16,10 +16,11 @@ export interface ReviewItf {
     reviewTime: string
     userId: string
     userName: string
-    originalId: string
+    reviewBlogId: string
+    reviewCommentId: string
     reviewType: string
-    like: string
-    hate: string
+    likeTotal: string
+    hateTotal: string
 }
 export class BlogData {
     blogContent: BlogItf[] = [{
@@ -55,10 +56,11 @@ export class ReviewData {
         reviewTime: '',
         userId: '',
         userName: '',
-        originalId: '',
+        reviewBlogId: '',
+        reviewCommentId: '',
         reviewType: '',
-        like: '',
-        hate: '',
+        likeTotal: '',
+        hateTotal: '',
     }]
     ReviewOne: ReviewItf = {
         id: '',
@@ -66,9 +68,10 @@ export class ReviewData {
         reviewTime: '',
         userId: '',
         userName: '',
-        originalId: '',
+        reviewBlogId: '',
+        reviewCommentId: '',
         reviewType: '',
-        like: '',
-        hate: '',
+        likeTotal: '',
+        hateTotal: '',
     }
 }

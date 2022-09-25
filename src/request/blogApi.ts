@@ -34,14 +34,28 @@ export function addBlogApi(title:string,inputIntro:string,content:string){
     })
 }
 
-export function addReviewApi(originalId:string| undefined,content:string,reviewType:string){
+export function addReviewApi(reviewBlogId:String| undefined,reviewCommentId:string,content:string,reviewType:string){
     return service({
         url:"/blog/addReview",
         method:"POST",
         data:{
-            originalId:originalId,
+            reviewBlogId:reviewBlogId,
+            reviewCommentId:reviewCommentId,
             content:content,
             reviewType:reviewType,
         },
     })
+}
+
+export function findReviewApi(reviewBlogId:string| undefined,reviewCommentId:string,reviewType:string){
+    return service({
+        url:"/blog/findReview",
+        method:"POST",
+        data:{
+            reviewBlogId:reviewBlogId,
+            reviewCommentId:reviewCommentId,
+            reviewType:reviewType,
+        }
+    })
+
 }
