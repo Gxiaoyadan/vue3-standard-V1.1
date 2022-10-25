@@ -41,7 +41,7 @@
                         </div>
                     </div>
                     <div class="page">
-                        <el-pagination v-model:current-page="pageData.pageIndex" @current-change="findBlog" background
+                        <el-pagination :pager-count="5" v-model:current-page="pageData.pageIndex" @current-change="findBlog" background
                             layout="prev, pager, next" :page-count="pageData.pageCount" />
                     </div>
                 </div>
