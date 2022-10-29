@@ -95,7 +95,7 @@ const release=()=>{
 }
 
 .el-aside {
-    background-color: white;
+    background-color: whitesmoke;
 
     .release-button {
         text-align: center;
@@ -134,7 +134,7 @@ const release=()=>{
         // padding--内边距
         margin-top: 10px;
         background-color: white;
-
+        height: 110px;
 
         .content-title {
             font-size: large;
@@ -164,11 +164,11 @@ const release=()=>{
 
     .page {
         background-color: white; 
-        width: 30%;
+        width: 40%;
         height: 60px;
         margin-top: 10px;
         padding-top: 20px;
-        padding-left: 70%;
+        padding-left: 60%;
     }
 
 }

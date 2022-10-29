@@ -3,7 +3,7 @@ import HomeHeader from '@/components/HomeHeader.vue';
 import ManageAside from '@/components/ManageAside.vue';
 </script>
 <template>
-  <div>
+  <div class="manage-box">
     <el-container>
       <el-header class="manage-head">
         <HomeHeader />
@@ -12,7 +12,7 @@ import ManageAside from '@/components/ManageAside.vue';
         <el-aside class="manage-aside">
           <ManageAside />
         </el-aside>
-        <el-main>
+        <el-main class="manage-main">
           <router-view />
         </el-main>
       </el-container>
@@ -20,6 +20,9 @@ import ManageAside from '@/components/ManageAside.vue';
   </div>
 </template>
 <style lang="scss">
+.manage-box{
+  background-image: url("../../assets/homebg.jpg");
+}
 .manage-head {
   //background-color: #c6c1a1;
   height: 80px;
@@ -30,7 +33,7 @@ import ManageAside from '@/components/ManageAside.vue';
   width: 200px;
 }
 
-// .el-main {
-//   background-color: gray;
-// }
+.manage-main {
+  background-color: ghostwhite;
+}
 </style>

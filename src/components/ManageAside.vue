@@ -1,6 +1,6 @@
 <template>
     <!-- router开启路由模式，通过下面的index进行路由跳转 -->
-    <el-menu active-text-color="#ffd04b" background-color="#545c64" text-color="#fff" :default-active="default_path"
+    <el-menu active-text-color="grey" background-color="white" text-color="black" :default-active="default_path"
         router>
         <el-menu-item :index="item.path" v-for="item in menus" :key="item.path">
             <span class="menu-title">{{item.meta.title}}</span>
@@ -33,7 +33,7 @@ console.log(default_path);
 </script>
 <style lang="scss" scoped>
 .el-menu {
-    background-color: #545c64;
+    background-color: gainsboro;
     // 100vh整个页面高度-顶部菜单栏高度，撑满屏幕
     height: calc(100vh - 80px);
 }

@@ -70,7 +70,7 @@ const getBlogCont = () => {
 </script>
 <style lang="scss" scoped>
 .layout-box {
-    width: 70%;
+    width: 60%;
     background-color: whitesmoke;
     margin: auto;
     padding: 50px;

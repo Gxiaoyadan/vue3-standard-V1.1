@@ -12,37 +12,21 @@ const router = createRouter({
         {
           path: 'homeInfo',
           name: 'homeInfo',
-          // meta: {
-          //   isShow: true,//是否需要被展示出来
-          //   title: "homeInfo"
-          // },
           component: () => import('../views/home/HomeInfoView.vue')
         },
         {
           path: 'blog',
           name: 'blog',
-          // meta: {
-          //   isShow: true,//是否需要被展示出来
-          //   title: "blog"
-          // },
           component: () => import('../views/blog/BlogView.vue')
         },
         {
           path: 'blogcont',
           name: 'blogcont',
-          // meta: {
-          //   isShow: true,//是否需要被展示出来
-          //   title: "blog"
-          // },
           component: () => import('../views/blog/BlogContentView.vue')
         },
         {
           path: 'blogedit',
           name: 'blogedit',
-          // meta: {
-          //   isShow: true,//是否需要被展示出来
-          //   title: "blog"
-          // },
           component: () => import('../views/blog/BlogEditView.vue')
         },
       ]
@@ -76,10 +60,29 @@ const router = createRouter({
           path: 'goods',
           name: 'goods',
           meta: {
-            isShow: true,//是否需要被展示出来
+            //不展示该页面（下载用户信息到Excel表中）
+            isShow: false,//是否需要被展示出来
             title: "Goods Manage"
           },
           component: () => import('../views/manage/GoodsView.vue')
+        },
+        {
+          path: 'visitLog',
+          name: 'visitLog',
+          meta: {
+            isShow: true,//是否需要被展示出来
+            title: "VisitLog Manage"
+          },
+          component: () => import('../views/manage/VisitLogView.vue')
+        },
+        {
+          path: 'blogManage',
+          name: 'blogManage',
+          meta: {
+            isShow: true,//是否需要被展示出来
+            title: "Blog Manage"
+          },
+          component: () => import('../views/manage/BlogView.vue')
         },
       ]
     }

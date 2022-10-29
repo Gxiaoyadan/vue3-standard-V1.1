@@ -6,8 +6,14 @@
     </div>
 </template>
 <style lang="scss" scoped>
+.info-box{
+    //background-image: url("../../assets/homebg.jpg");
+    width: 100%;
+    height: 100%;
+}
 .info-content {
     //background-color: aliceblue;
+
     padding: 250px;
     width: 35%;
     height: 35%;

@@ -12,6 +12,28 @@ export function findBlogApi(pageIndex:number,param:string){
     })
 }
 
+//管理页面查询blog
+export function findBlogForManageApi(pageIndex:number,param:string){
+    return service({
+        url:"/blog/findBlogForManage",
+        method:"GET",
+        params:{
+            pageIndex:pageIndex,
+            param:param
+        }
+    })
+}
+//管理页面删除blog
+export function delBlogForManageApi (id:string){
+    return service({
+        url:"/blog/delBlogForManage",
+        method:"get",
+        params:{
+            id:id
+        }
+    })
+}
+
 export function findBlogByIdApi(blogId:string){
     return service({
         url:"/blog/findBlogById",

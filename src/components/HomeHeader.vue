@@ -52,7 +52,9 @@ const manage = () => {
 }
 </script>
 <style lang="scss" scoped>
-
+.head-box{
+     //background-color: red;
+}
 .logo {
     height: 80px;
     float: right;

@@ -9,7 +9,7 @@ import HomeHeader from '@/components/HomeHeader.vue';
                 <HomeHeader />
             </el-header>
             <el-container>
-                <el-main>
+                <el-main class="home-main">
                     <router-view />
                 </el-main>
             </el-container>
@@ -21,6 +21,13 @@ import HomeHeader from '@/components/HomeHeader.vue';
     width: 100%;
     height: 100vh;
     background-image: url("../../assets/homebg.jpg");
-}
 
+}   
+.home-main {
+    margin-top: 20px;
+    //background-color: ghostwhite;
+    //background-image: url("../../assets/homebg.jpg");
+
+    height: calc(100vh - 80px);
+}
 </style>
