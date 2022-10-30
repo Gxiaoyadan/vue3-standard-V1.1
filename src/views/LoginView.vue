@@ -3,8 +3,8 @@
         <div class="login-form">
             <el-form ref="ruleFormRef" :model="ruleForm" status-icon :rules="rules" label-width="120px"
                 class="demo-ruleForm">
-                <el-form-item label="Name" prop="name">
-                    <el-input v-model="ruleForm.name" />
+                <el-form-item label="IdOrEmail" prop="idOrEmail">
+                    <el-input v-model="ruleForm.idOrEmail" />
                 </el-form-item>
                 <el-form-item label="Password" prop="password">
                     <el-input v-model="ruleForm.password" type="password" autocomplete="off" />
@@ -33,16 +33,16 @@ const ruleForm = loginData.ruleForm
 
 //表单输入规则
 const rules = {
-    name: [
+    idOrEmail: [
         {
             required: true,//是否必输
-            message: "Please input name",
+            message: "Please input Id or Email",
             trigger: "blur"//触发时机：当失去焦点时
         },
         {
-            min: 1,//最小字符数
-            max: 15,//最大字符数
-            message: "The user name should be 3-15 characters long",
+            min: 5,//最小字符数
+            max: 20,//最大字符数
+            message: "The user Id or Email should be 5-20 characters long",
             trigger: "blur"
         }
     ],
@@ -53,9 +53,9 @@ const rules = {
             trigger: "blur"//触发时机：当失去焦点时
         },
         {
-            min: 1,//最小字符数
+            min: 5,//最小字符数
             max: 15,//最大字符数
-            message: "The password should be 3-15 characters long",
+            message: "The password should be 5-15 characters long",
             trigger: "blur"
         }
     ]
@@ -68,7 +68,7 @@ const resetForm = (formEl: FormInstance | undefined) => {
     //表单为空，直接返回，不做任何处理
     if (!formEl) return
     formEl.resetFields()
-    ruleForm.name = ""
+    ruleForm.idOrEmail = ""
     ruleForm.password = ""
 }
 
@@ -77,7 +77,8 @@ const submitForm = (formEl: FormInstance | undefined) => {
     if (!formEl) return
     formEl.validate((valid) => {
         if (valid) {
-            login(ruleForm).then((res) => {
+            // console.log(ruleForm.idOrEmail,ruleForm.password);
+            login(ruleForm.idOrEmail,ruleForm.password).then((res) => {
                 console.log(res);
 
                 localStorage.setItem("token", res.data)
@@ -96,15 +97,15 @@ const submitForm = (formEl: FormInstance | undefined) => {
 <style lang="scss" scoped>
 .login-box {
     width: 100%;
-    height: 100vh;
-    background-image: url("../assets/bg.jpg");
+    height: 100%;
+    //background-image: url("../assets/bg.jpg");
 }
 
 .login-form {
     background-color: aliceblue;
     padding: 20px;
     width: 35%;
-    height: 35%;
+    height: 45%;
     border-radius: 10px;
     position: relative;
     top: 20%;

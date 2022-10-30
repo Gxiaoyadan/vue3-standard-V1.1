@@ -1,13 +1,15 @@
 import service from "@/request/index";
-import type { LoginDataItf } from "@/type/login";
 import type { UserItf, UserRegisterItf } from "@/type/user";
 
 //登录
-export function login (data:LoginDataItf){
+export function login (idOrEmail:string , password:string){
     return service({
         url:"/login",
         method:"POST",
-        data:data
+        data:{
+            idOrEmail:idOrEmail,
+            password:password
+        }
     })
 }
 //用户注册

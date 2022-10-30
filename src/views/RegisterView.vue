@@ -115,5 +115,8 @@ const submitForm = (formEl: FormInstance | undefined) => {
     width: 800px;
     margin-left: 400px;
     margin-top: 100px;
+    background-color: aliceblue;
+    padding: 50px;
+    border-radius: 10px;
 }
 </style>

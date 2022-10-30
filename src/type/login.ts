@@ -1,11 +1,11 @@
 export interface LoginDataItf{
-    name:string
+    idOrEmail:string
     password:string
 }
 
 export class LoginData{
     ruleForm: LoginDataItf = {
-        name:"",
+        idOrEmail:"",
         password:""
     }
 }
